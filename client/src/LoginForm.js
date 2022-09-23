@@ -1,5 +1,5 @@
 import React, { useState } from "react";
-import {useHistory} from 'react-router-dom'
+import { useNavigate } from "react-router-dom";
 
 
 const LoginForm = ({setCurrentUser, isAuthenticated}) => {
@@ -9,18 +9,19 @@ const LoginForm = ({setCurrentUser, isAuthenticated}) => {
   });
 
   const handleChange = (e) => {
-    console.log()
+    console.log(e.target.value)
     setFormData({
       ...formData,
       [e.target.name]: e.target.value,
       
       
     });
+   
   };
  
- 
+ const navigate = useNavigate()
   const handleSubmit = (event) => {
-    console.log(formData)
+    
     event.preventDefault();
     fetch("/login", {
       method: "POST",
@@ -33,9 +34,10 @@ const LoginForm = ({setCurrentUser, isAuthenticated}) => {
       if (res.ok) {
         res.json().then((user) => {
           setCurrentUser(user);
-          history.push('/me');
+          navigate("/")
         });
       } else {
+        
         res.json().then((errors) => {
           console.error(errors);
         });
@@ -43,24 +45,24 @@ const LoginForm = ({setCurrentUser, isAuthenticated}) => {
     });
   };
 
-  const history = useHistory("");
+
 
   return (
     <div>
         <form onSubmit={handleSubmit}>
-            <label htmlFor="username">Username:</label>
+            <label htmlFor="name">Username:</label>
             <input
-              id="username-input"
+              id="name-input"
               type="text"
-              username="username"
-              value={formData.username}
+              name="name"
+              value={formData.name}
               onChange={handleChange}
             />
             <label htmlFor="password">Password:</label>
             <input
               id="password-input"
               type="password"
-              username="password"
+              name="password"
               value={formData.password}
               onChange={handleChange}
             />
@@ -70,7 +72,7 @@ const LoginForm = ({setCurrentUser, isAuthenticated}) => {
         
         {!isAuthenticated ? <div className="signupPrompt">
             <p>Don't have an Account?</p>
-            <button onClick={() => {history.push('/signup')}}>Click Here To Create An Account</button>
+            <button onClick={() => {}}>Click Here To Create An Account</button>
             </div> : null}
       </div>
   );

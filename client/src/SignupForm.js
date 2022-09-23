@@ -1,12 +1,12 @@
 import React, { useState } from "react";
+import { useNavigate } from "react-router-dom";
 
-const SignupForm = ({setCurrentUser}) => {
+const SignupForm = ({ setCurrentUser }) => {
   const [formData, setFormData] = useState({
     name: "",
     password: "",
     email: "",
-    username: "", 
-    bio: ""
+    username: ""
   });
 
   const handleChange = (e) => {
@@ -15,10 +15,14 @@ const SignupForm = ({setCurrentUser}) => {
       [e.target.name]: e.target.value,
     });
   };
+
+  let navigate = useNavigate()
+
   function handleSubmit(e) {
     e.preventDefault();
 
     const userCreds = { ...formData };
+
 
     fetch("/users", {
       method: "POST",
@@ -30,11 +34,14 @@ const SignupForm = ({setCurrentUser}) => {
       if (res.ok) {
         res.json().then((user) => {
           setCurrentUser(user);
+          navigate("/")
         });
       } else {
         res.json().then((errors) => {
           console.error(errors);
+
         });
+
       }
     });
   }
@@ -71,14 +78,6 @@ const SignupForm = ({setCurrentUser}) => {
         type="password"
         name="password"
         value={formData.password}
-        onChange={handleChange}
-      />
-      <label htmlFor="bio">About Me:</label>
-      <input
-        id="bio-signup-input"
-        type="text"
-        name="bio"
-        value={formData.bio}
         onChange={handleChange}
       />
       <button type="submit">Submit</button>

@@ -11,7 +11,7 @@ puts "roll it up"
 User.destroy_all
 
 puts "Gathering some peeps"
-5.times do User.create(username: Faker::Internet.username, name: Faker::TvShows::DrWho.character, bio: Faker::GreekPhilosophers.quote, admin: false, password_digest: rand(1..100), email: Faker::Internet.email)
+5.times do User.create(username: Faker::Internet.username, name: Faker::TvShows::DrWho.character, password_digest: rand(1..100), email: Faker::Internet.email)
 end
 puts "Got the geeks"
 
