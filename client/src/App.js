@@ -6,6 +6,8 @@ import { useNavigate } from "react-router-dom"
 import NavBar from './NavBar';
 import Home from './Home';
 import Media from './Media';
+import Profile from './Profile';
+import MyFlicks from './MyFlicks';
 
 function App() {
 
@@ -40,14 +42,28 @@ function App() {
 	return (
 		<div className="App">
 			<NavBar isAuthenticated={isAuthenticated} currentUser={currentUser} handleLogout={handleLogout} />
-			<Routes>
-				<Route path="/" element={<Home isAuthenticated={isAuthenticated} currentUser={currentUser} handleLogout={handleLogout} />} />
-				<Route path="/browse" element={<Media />} />
+			{/* When User first arrives to site they will be directed to Signup/Login Page. They will only have access to this landing page, 
+				and cannot browse movies until they make an account */}
+			{!isAuthenticated ?
+				<Routes>
+					<Route path="/" element={<Home isAuthenticated={isAuthenticated} setCurrentUser={setCurrentUser} currentUser={currentUser} handleLogout={handleLogout} />} />
+					<Route path="/browse" element={<Media />} />
 
-			</Routes>
+				</Routes>
+				:
+				<Routes>
 
+					<Route path="/browse" element={<Media />} />
+					<Route path="/profile" element={<Profile />} />
+					<Route path="/myflicks" element={<MyFlicks />} />
 
-			{isAuthenticated ? "Hello" : null}
+					
+
+				</Routes>
+
+			}
+
+			{!isAuthenticated ? null : "Hello"}
 		</div>
 	);
 }

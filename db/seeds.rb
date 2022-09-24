@@ -10,13 +10,14 @@ puts "roll it up"
 
 User.destroy_all
 
-puts "Gathering some peeps"
-5.times do User.create(username: Faker::Internet.username, name: Faker::TvShows::DrWho.character, password_digest: rand(1..100), email: Faker::Internet.email)
+puts "Gathering some people"
+5.times do u = User.create!(username: Faker::Internet.username, name: Faker::TvShows::DrWho.character, password: "password", email: Faker::Internet.email)
+puts u.errors.full_messages
+
 end
-puts "Got the geeks"
 
 Follow.destroy_all
-puts "we're following the leader 🎶"
+puts "seeding follows"
 2.times do Follow.create(follower_id: rand(1..5), followed_user_id: rand(1..5))
 end
 

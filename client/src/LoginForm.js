@@ -9,7 +9,7 @@ const LoginForm = ({setCurrentUser, isAuthenticated}) => {
   });
 
   const handleChange = (e) => {
-    console.log(e.target.value)
+    
     setFormData({
       ...formData,
       [e.target.name]: e.target.value,
@@ -30,8 +30,7 @@ const LoginForm = ({setCurrentUser, isAuthenticated}) => {
       },
       body: JSON.stringify(formData),
     }).then((res) => {
-      console.log(res)
-      if (res.ok) {
+            if (res.ok) {
         res.json().then((user) => {
           setCurrentUser(user);
           navigate("/")

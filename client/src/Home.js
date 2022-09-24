@@ -2,19 +2,28 @@ import React from "react";
 import SignupForm from "./SignupForm";
 import LoginForm from "./LoginForm";
 import Media from "./Media";
-
+import { useState, useEffect } from "react";
 
 function Home({isAuthenticated, setCurrentUser, handleLogout}){
+
+
+    
     return (
         <div>
-            Home Page
-             {
-				!isAuthenticated ? <div> 
-                <SignupForm setCurrentUser={setCurrentUser} /> <LoginForm setCurrentUser={setCurrentUser}  isAuthenticated ={isAuthenticated}/> </div>
-				: 	<Media />	
+        
+            <p>Welcome to NextFlick</p>
+        {!isAuthenticated ? 
+            <div> 
+                <SignupForm setCurrentUser={setCurrentUser} /> 
+                <LoginForm setCurrentUser={setCurrentUser}  isAuthenticated ={isAuthenticated}/>
+            </div> 
+        : 
+            null
+        }     
+        
 				
-			}
-                
+				
+		              
         </div>
     )
 }

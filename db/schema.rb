@@ -52,8 +52,6 @@ ActiveRecord::Schema[7.0].define(version: 2022_09_21_162329) do
     t.string "password_digest"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
-    t.boolean "admin"
-    t.string "bio"
   end
 
   add_foreign_key "movies", "users"
