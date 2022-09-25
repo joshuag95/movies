@@ -10,7 +10,6 @@ const genre = genres.forEach(((item) => {
           
             <p> Title: {name}</p>
             <img src= {image} alt="Title Poster"/>
-            <p>Genre: {genre}</p>
             <p>Summary: {summary}</p>
            
         

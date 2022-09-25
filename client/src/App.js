@@ -54,7 +54,7 @@ function App() {
 				<Routes>
 
 					<Route path="/browse" element={<Media />} />
-					<Route path="/profile" element={<Profile />} />
+					<Route path="/profile" element={<Profile user = {currentUser} />} />
 					<Route path="/myflicks" element={<MyFlicks />} />
 
 					
@@ -63,7 +63,6 @@ function App() {
 
 			}
 
-			{!isAuthenticated ? null : "Hello"}
 		</div>
 	);
 }
