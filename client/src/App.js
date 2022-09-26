@@ -8,6 +8,7 @@ import Home from './Home';
 import Media from './Media';
 import Profile from './Profile';
 import MyFlicks from './MyFlicks';
+import AllUsers from './AllUsers';
 
 function App() {
 
@@ -39,6 +40,9 @@ function App() {
 		setIsAuthenticated(false)
 	}
 
+
+
+	
 	return (
 		<div className="App">
 			<NavBar isAuthenticated={isAuthenticated} currentUser={currentUser} handleLogout={handleLogout} />
@@ -54,8 +58,9 @@ function App() {
 				<Routes>
 
 					<Route path="/browse" element={<Media />} />
-					<Route path="/profile" element={<Profile user = {currentUser} />} />
+					<Route path="/profile" element={<Profile user = {currentUser} setCurrentUser ={setCurrentUser} />} />
 					<Route path="/myflicks" element={<MyFlicks />} />
+					<Route path="/all_users" element={<AllUsers />} />
 
 					
 

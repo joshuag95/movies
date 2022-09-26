@@ -13,6 +13,7 @@ export default function NavBar({ isAuthenticated, currentUser, handleLogout }) {
                 <NavLink path to="/browse">Browse</NavLink>
                 <NavLink path to="/Profile">Profile</NavLink>
                 <NavLink path to="/myflicks">My Flicks</NavLink>
+                <NavLink path to="/all_users">Users</NavLink>
 
             <button onClick={handleLogout}>Logout</button>
             </div>
