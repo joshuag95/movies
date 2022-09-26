@@ -11,9 +11,9 @@ export default function NavBar({ isAuthenticated, currentUser, handleLogout }) {
             : 
             <div>
                 <NavLink path to="/browse">Browse</NavLink>
-                <NavLink path to="/Profile">Profile</NavLink>
+                <NavLink path to="/profile">Profile</NavLink>
                 <NavLink path to="/myflicks">My Flicks</NavLink>
-                <NavLink path to="/all_users">Users</NavLink>
+                <NavLink path to="/people">Users</NavLink>
 
             <button onClick={handleLogout}>Logout</button>
             </div>

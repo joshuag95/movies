@@ -11,10 +11,10 @@ class User < ApplicationRecord
     # returns an array of other users who the user has followed
     has_many :followings, through: :given_follows, source: :followed_user
 
-    has_many :saved_movies
+    has_many :saved_movies, dependent: :destroy
     has_many :movies, through: :saved_movies
 
     validates :name, presence: true
     validates :username, presence: true  
-    validates :password, presence: true 
+    # validates :password, presence: true 
 end

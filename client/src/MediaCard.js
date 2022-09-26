@@ -9,7 +9,7 @@ const genre = genres.forEach(((item) => {
             
           
             <p> Title: {name}</p>
-            <img src= {image} alt="Title Poster"/>
+            {/* <img src= {image} alt="Title Poster"/> */}
             <p>Summary: {summary}</p>
             <button>Want to Watch</button>
             <button>Watched</button>

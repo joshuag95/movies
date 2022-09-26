@@ -6,10 +6,16 @@ export default function Profile({ user, setCurrentUser }) {
 
     const [areYouSure, setAreYouSure] = useState(false)
     const [edit, setEdit] = useState(false)
-    const [name, setName] = useState("")
-    const [email, setEmail] = useState("")
-    const [username, setUsername] = useState("")
+    const [name, setName] = useState(user.name)
+    const [email, setEmail] = useState(user.email)
+    const [username, setUsername] = useState(user.username)
     const [showDetails, setShowDetails] = useState(false)
+    const [seeFollowers, setSeeFollowers] = useState(true)
+
+
+    const handleSeeFollowers = () => {
+        setSeeFollowers(!seeFollowers)
+    }
 
     const handleEdit = () => {
         setEdit((edit) => !edit)
@@ -17,21 +23,23 @@ export default function Profile({ user, setCurrentUser }) {
 
     const changeDetails = (e) => {
         e.preventDefault()
-        fetch(`/users/${user.id}`, {
+            fetch(`/users/${user.id}`, {
             method: "PATCH",
             headers: {
                 'Content-type': "application/json",
             },
-            body: JSON.stringify({
-                name,
-                email,
-                username
+            body: JSON.stringify({ 
+            
+                name: name,
+                email: email,
+                username: username
             }),
         })
             .then(res => res.json())
             .then(user => setCurrentUser(user))
         e.target.reset()
         handleEdit()
+        
     }
 
     const handleShowDetails = () => {
@@ -41,7 +49,7 @@ export default function Profile({ user, setCurrentUser }) {
         setAreYouSure((areYouSure) => !areYouSure)
 
     }
-    console.log(user.id)
+   
     const navigate = useNavigate()
 
     function handleDelete() {
@@ -65,8 +73,6 @@ export default function Profile({ user, setCurrentUser }) {
 
 
     const followed = user.followings
-
-    console.log(user.followers)
 
     return (
         <div>
@@ -101,12 +107,23 @@ export default function Profile({ user, setCurrentUser }) {
                             <h3>Email:<input placeholder={email} onChange={(e) => setEmail(e.target.value)}></input></h3>
                             <h3>Username:<input placeholder={username} onChange={(e) => setUsername(e.target.value)}></input></h3>
                             <input type='submit'></input> <button onClick={handleEdit}>Cancel Edits</button>
-                        </form>}
+                        </form>
+                        }
                 </div>
                 :
                 <div>
-                    <h5>Your Followers</h5>
-                    {follower}
+                   <button onClick={handleSeeFollowers}>{seeFollowers ? "Who Am I Following?" : " See Followers"}</button>
+                   {seeFollowers ? 
+                   <div>
+                    <h5>Following</h5>
+                   </div>
+                   
+                   : 
+                   <div>
+                        <h5>Your Followers</h5>
+                        {follower}
+                    </div>}
+                    
                 </div>
 
             }

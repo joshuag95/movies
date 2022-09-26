@@ -1,6 +1,6 @@
 GIT
   remote: https://github.com/faker-ruby/faker.git
-  revision: 4f4c1a330963de84ea188f97de12e6895217eac3
+  revision: a7746b9576f9f035202defbf74ed437f86269121
   branch: master
   specs:
     faker (2.23.0)
@@ -83,13 +83,11 @@ GEM
     bootsnap (1.13.0)
       msgpack (~> 1.2)
     builder (3.2.4)
+    byebug (11.1.3)
     case_transform (0.2)
       activesupport
     concurrent-ruby (1.1.10)
     crass (1.0.6)
-    debug (1.6.2)
-      irb (>= 1.3.6)
-      reline (>= 0.3.1)
     digest (3.1.0)
     domain_name (0.5.20190701)
       unf (>= 0.0.5, < 1.0.0)
@@ -101,9 +99,6 @@ GEM
       domain_name (~> 0.5)
     i18n (1.12.0)
       concurrent-ruby (~> 1.0)
-    io-console (0.5.11)
-    irb (1.4.1)
-      reline (>= 0.3.0)
     jsonapi-renderer (0.2.2)
     loofah (2.19.0)
       crass (~> 1.0.2)
@@ -172,14 +167,12 @@ GEM
       thor (~> 1.0)
       zeitwerk (~> 2.5)
     rake (13.0.6)
-    reline (0.3.1)
-      io-console (~> 0.5)
     rest-client (2.1.0)
       http-accept (>= 1.7.0, < 2.0)
       http-cookie (>= 1.0.2, < 2.0)
       mime-types (>= 1.16, < 4.0)
       netrc (~> 0.8)
-    spring (4.0.0)
+    spring (4.1.0)
     strscan (3.0.4)
     thor (1.2.1)
     timeout (0.3.0)
@@ -201,7 +194,7 @@ DEPENDENCIES
   active_model_serializers (~> 0.10.13)
   bcrypt (~> 3.1.7)
   bootsnap
-  debug
+  byebug
   faker!
   net-http (~> 0.2.2)
   pg (~> 1.1)

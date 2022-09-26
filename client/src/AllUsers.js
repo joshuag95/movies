@@ -1,6 +1,7 @@
 import { useEffect, useState } from "react";
+import UserCard from "./UserCard";
 
-function AllUsers(){
+function AllUsers({currentUser}){
 
 
     const [allUsers, setAllUsers] = useState([])
@@ -8,15 +9,18 @@ function AllUsers(){
     useEffect(() => {
         fetch("/users")
             .then(r => r.json())
-            .then(users => {
-                setAllUsers(users)
+            .then(u => {
+                setAllUsers(u)
             })
 
     }, []);
+console.log(allUsers)
+    const usersArray = allUsers.map((userObj) => {
+       return( <UserCard key = {userObj.id} user = {userObj} currentUser={currentUser} /> )
+    })
 
-    console.log(allUsers)
     return(
-        <div>All Users Here</div>
+        <div>{usersArray}</div>
     )
 }
 

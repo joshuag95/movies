@@ -23,9 +23,22 @@ class UsersController < ApplicationController
           end
       end
 
+      def update
+        user = User.find_by(id: params[:id])
+            user.update!(user_params)
+            render json: user
+        end
+
+      def destroy
+        user = User.find_by(id: params[:id])
+        user.destroy
+        head :no_content
+      end
+
     def user_params
-        params.permit(:name, :username, :email, :password)
+        params.permit(:name, :username, :email, :password, :id)
     end
 
+    
 end
 

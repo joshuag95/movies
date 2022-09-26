@@ -42,7 +42,7 @@ function App() {
 
 
 
-	
+
 	return (
 		<div className="App">
 			<NavBar isAuthenticated={isAuthenticated} currentUser={currentUser} handleLogout={handleLogout} />
@@ -60,7 +60,7 @@ function App() {
 					<Route path="/browse" element={<Media />} />
 					<Route path="/profile" element={<Profile user = {currentUser} setCurrentUser ={setCurrentUser} />} />
 					<Route path="/myflicks" element={<MyFlicks />} />
-					<Route path="/all_users" element={<AllUsers />} />
+					<Route path="/people" element={<AllUsers currentUser={currentUser} />} />
 
 					
 
