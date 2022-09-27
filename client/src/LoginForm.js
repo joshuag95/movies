@@ -2,11 +2,8 @@ import React, { useState } from "react";
 import { useNavigate } from "react-router-dom";
 
 
-const LoginForm = ({setCurrentUser, isAuthenticated}) => {
-  const [formData, setFormData] = useState({
-    username: "",
-    password: "",
-  });
+const LoginForm = ({setCurrentUser, setIsAuthenticated, isAuthenticated}) => {
+  const [formData, setFormData] = useState({})
 
   const handleChange = (e) => {
     
@@ -20,20 +17,21 @@ const LoginForm = ({setCurrentUser, isAuthenticated}) => {
   };
  
  const navigate = useNavigate()
+
   const handleSubmit = (event) => {
     
     event.preventDefault();
     fetch("/login", {
       method: "POST",
-      headers: {
-        "Content-Type": "application/json",
-      },
+      headers: {"Content-Type": "application/json"},
       body: JSON.stringify(formData),
-    }).then((res) => {
+      })
+    .then((res) => {
             if (res.ok) {
-        res.json().then((user) => {
-          setCurrentUser(user);
-          navigate("/")
+        res.json().then((obj) => {
+          setCurrentUser(obj);
+          setIsAuthenticated(true)
+          navigate("/browse")
         });
       } else {
         
@@ -42,6 +40,7 @@ const LoginForm = ({setCurrentUser, isAuthenticated}) => {
         });
       }
     });
+    
   };
 
 
@@ -49,11 +48,11 @@ const LoginForm = ({setCurrentUser, isAuthenticated}) => {
   return (
     <div>
         <form onSubmit={handleSubmit}>
-            <label htmlFor="name">Username:</label>
+            <label htmlFor="username">Username:</label>
             <input
               id="name-input"
               type="text"
-              name="name"
+              name="username"
               value={formData.name}
               onChange={handleChange}
             />

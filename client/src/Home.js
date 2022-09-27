@@ -4,7 +4,7 @@ import LoginForm from "./LoginForm";
 import Media from "./Media";
 import { useState, useEffect } from "react";
 
-function Home({isAuthenticated, setCurrentUser, handleLogout}){
+function Home({setIsAuthenticated, setCurrentUser, handleLogout, isAuthenticated}){
 
 
     
@@ -15,7 +15,7 @@ function Home({isAuthenticated, setCurrentUser, handleLogout}){
         {!isAuthenticated ? 
             <div> 
                 <SignupForm setCurrentUser={setCurrentUser} /> 
-                <LoginForm setCurrentUser={setCurrentUser}  isAuthenticated ={isAuthenticated}/>
+                <LoginForm setCurrentUser={setCurrentUser}  setIsAuthenticated ={setIsAuthenticated}/>
             </div> 
         : 
             null

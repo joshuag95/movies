@@ -1,11 +1,11 @@
 import { useState } from "react";
 
 
-function UserCard({user, currentUser}){
+function UserCard({user, currentUser, setCurrentUser}){
    
 
     const [followed, setFollowed] = useState(false)
-
+console.log(currentUser)
 
     const handleFollow = () => {
         const followData = {
@@ -21,10 +21,10 @@ function UserCard({user, currentUser}){
                 body: JSON.stringify(followData), 
             })
             .then((resp) => resp.json())
-            .then((info) => {
-                console.log('following', info);
+            .then((info) => {console.log(info);
             })
             setFollowed(true)
+            
     }
     
     return(

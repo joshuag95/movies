@@ -40,6 +40,8 @@ function App() {
 		setIsAuthenticated(false)
 	}
 
+	
+
 
 
 
@@ -50,17 +52,17 @@ function App() {
 				and cannot browse movies until they make an account */}
 			{!isAuthenticated ?
 				<Routes>
-					<Route path="/" element={<Home isAuthenticated={isAuthenticated} setCurrentUser={setCurrentUser} currentUser={currentUser} handleLogout={handleLogout} />} />
-					<Route path="/browse" element={<Media />} />
+					<Route path="/" element={<Home isAuthenticated={isAuthenticated} setIsAuthenticated={setIsAuthenticated} setCurrentUser={setCurrentUser} currentUser={currentUser} handleLogout={handleLogout} />} />
+					
 
 				</Routes>
 				:
 				<Routes>
 
-					<Route path="/browse" element={<Media />} />
+					<Route path="/browse" element={<Media currentUser = {currentUser}  />} />
 					<Route path="/profile" element={<Profile user = {currentUser} setCurrentUser ={setCurrentUser} />} />
 					<Route path="/myflicks" element={<MyFlicks />} />
-					<Route path="/people" element={<AllUsers currentUser={currentUser} />} />
+					<Route path="/people" element={<AllUsers currentUser={currentUser} setCurrentUser={setCurrentUser} />} />
 
 					
 

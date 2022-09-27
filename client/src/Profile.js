@@ -1,6 +1,7 @@
 import { useState } from "react"
 import { useNavigate } from "react-router-dom"
 import FollowCard from "./FollowCard"
+import FollowingCard from "./FollowingCard"
 
 export default function Profile({ user, setCurrentUser }) {
 
@@ -74,6 +75,12 @@ export default function Profile({ user, setCurrentUser }) {
 
     const followed = user.followings
 
+    const following = followed.map((f) => {
+        return (
+            <FollowingCard name={f.name} key = {f.id} username={f.username}/>
+        )
+    })
+
     return (
         <div>
             <button onClick={handleShowDetails}>Profile details</button>
@@ -116,6 +123,7 @@ export default function Profile({ user, setCurrentUser }) {
                    {seeFollowers ? 
                    <div>
                     <h5>Following</h5>
+                    {following}
                    </div>
                    
                    : 

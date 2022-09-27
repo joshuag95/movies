@@ -6,7 +6,7 @@ function MediaContainer({tvStuff}) {
 
 
    
-console.log(tvStuff)
+
    const array = tvStuff.map(m => {
    return ( <MediaCard key = {m.id} name = {m.name} image = {m.image.original} genres = {m.genres} summary = {m.summary} />
    )})

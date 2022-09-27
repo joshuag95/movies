@@ -34,7 +34,7 @@ const SignupForm = ({ setCurrentUser }) => {
       if (res.ok) {
         res.json().then((user) => {
           setCurrentUser(user);
-          navigate("/")
+          navigate("/browse")
         });
       } else {
         res.json().then((errors) => {
@@ -44,6 +44,7 @@ const SignupForm = ({ setCurrentUser }) => {
 
       }
     });
+    
   }
 
   return (

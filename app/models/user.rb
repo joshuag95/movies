@@ -15,6 +15,8 @@ class User < ApplicationRecord
     has_many :movies, through: :saved_movies
 
     validates :name, presence: true
-    validates :username, presence: true  
-    # validates :password, presence: true 
+    validates :username, presence: true, uniqueness: true
+    validates :email, presence: true, uniqueness: true
+    validates :password, presence: true
+    
 end
