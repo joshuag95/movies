@@ -60,8 +60,8 @@ function App() {
 				<Routes>
 
 					<Route path="/browse" element={<Media currentUser = {currentUser}  />} />
-					<Route path="/profile" element={<Profile user = {currentUser} setCurrentUser ={setCurrentUser} />} />
-					<Route path="/myflicks" element={<MyFlicks />} />
+					<Route path="/profile" element={<Profile currentUser = {currentUser} setCurrentUser ={setCurrentUser} />} />
+					<Route path="/myflicks" element={<MyFlicks currentUser = {currentUser} />} />
 					<Route path="/people" element={<AllUsers currentUser={currentUser} setCurrentUser={setCurrentUser} />} />
 
 					

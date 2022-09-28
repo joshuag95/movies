@@ -3,13 +3,13 @@ import { useNavigate } from "react-router-dom"
 import FollowCard from "./FollowCard"
 import FollowingCard from "./FollowingCard"
 
-export default function Profile({ user, setCurrentUser }) {
+export default function Profile({ currentUser, setCurrentUser }) {
 
     const [areYouSure, setAreYouSure] = useState(false)
     const [edit, setEdit] = useState(false)
-    const [name, setName] = useState(user.name)
-    const [email, setEmail] = useState(user.email)
-    const [username, setUsername] = useState(user.username)
+    const [name, setName] = useState(currentUser.name)
+    const [email, setEmail] = useState(currentUser.email)
+    const [username, setUsername] = useState(currentUser.username)
     const [showDetails, setShowDetails] = useState(false)
     const [seeFollowers, setSeeFollowers] = useState(true)
 
@@ -24,7 +24,7 @@ export default function Profile({ user, setCurrentUser }) {
 
     const changeDetails = (e) => {
         e.preventDefault()
-            fetch(`/users/${user.id}`, {
+            fetch(`/users/${currentUser.id}`, {
             method: "PATCH",
             headers: {
                 'Content-type': "application/json",
@@ -37,7 +37,7 @@ export default function Profile({ user, setCurrentUser }) {
             }),
         })
             .then(res => res.json())
-            .then(user => setCurrentUser(user))
+            .then(currentUser => setCurrentUser(currentUser))
         e.target.reset()
         handleEdit()
         
@@ -55,7 +55,7 @@ export default function Profile({ user, setCurrentUser }) {
 
     function handleDelete() {
 
-        fetch(`/users/${user.id}`, {
+        fetch(`/users/${currentUser.id}`, {
             method: "DELETE",
 
         })
@@ -64,7 +64,7 @@ export default function Profile({ user, setCurrentUser }) {
 
     }
 
-    const followerArray = user.followers
+    const followerArray = currentUser.followers
 
     const follower = followerArray.map((f) => {
         return (
@@ -73,7 +73,7 @@ export default function Profile({ user, setCurrentUser }) {
     })
 
 
-    const followed = user.followings
+    const followed = currentUser.followings
 
     const following = followed.map((f) => {
         return (
@@ -91,9 +91,9 @@ export default function Profile({ user, setCurrentUser }) {
                     {!edit ?
                         <div>
 
-                            <h3>Name: {user.name} </h3>
-                            <h3>Username: {user.username} </h3>
-                            <h3>Email: {user.email} </h3>
+                            <h3>Name: {currentUser.name} </h3>
+                            <h3>Username: {currentUser.username} </h3>
+                            <h3>Email: {currentUser.email} </h3>
                             <button onClick={handleAreYouSure}>Delete My Account</button>
 
                             {areYouSure ?

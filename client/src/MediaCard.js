@@ -1,10 +1,8 @@
+import { useState } from "react"
 
-export default function MediaCard({name, image, summary, m, currentUser}){
+export default function MediaCard({name, image, summary, m, setCurrentUser}){
 
-// const genre = genres.forEach(((item) => {
-//     return (item)
-// }))
-
+const [watched, setWatched] = useState(false)
 
 const handleAddToList = () => {
     const movieData = {
@@ -23,6 +21,22 @@ const handleAddToList = () => {
         .then((info) => console.log(info))
 }
 
+
+const handleUpdateWatched = () => {
+    setWatched((watched) => !watched)
+    fetch(`/movies`, {
+        method: "PATCH",
+        headers: {
+            'Content-type': "application/json",
+        },
+        body: JSON.stringify({ 
+            watched: watched
+        }),
+    })
+        .then(res => res.json())
+        .then(userInfo => setCurrentUser(userInfo))
+}
+
     return (
         
 
@@ -34,7 +48,7 @@ const handleAddToList = () => {
             <img src= {image} alt="Title Poster"  className="object-contain w-full h-56 lg:h-72" />
             {/* <p>Summary: {summary}</p> */}
             <button onClick={handleAddToList}>Add to Watch List</button>
-            <button>Watched</button>
+            <button onClick={handleUpdateWatched}>Watched</button>
            
         
         
