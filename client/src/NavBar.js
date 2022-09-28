@@ -6,13 +6,13 @@ export default function NavBar({ isAuthenticated, currentUser, handleLogout }) {
     return (
 
 
-        <header class="bg-white dark:bg-gray-900">
+        <header class="bg-black :bg-gray-900">
 {!isAuthenticated ? null :
   <div
     class="flex items-center h-16 max-w-screen-xl gap-8 px-4 mx-auto sm:px-6 lg:px-8"
   >
  
-    <a class="block text-rose-300 dark:text-red-100" href="/">
+    {/* <a class="block text-yellow-300 :text-red-100" href="/">
       <span class="sr-only">Home</span>
       <svg
         class="h-8"
@@ -25,7 +25,7 @@ export default function NavBar({ isAuthenticated, currentUser, handleLogout }) {
           fill="currentColor"
         />
       </svg>
-    </a>
+    </a> */}
 
     <div class="flex items-center justify-end flex-1 md:justify-between">
       <nav class="hidden md:block" aria-labelledby="header-navigation">
@@ -34,7 +34,7 @@ export default function NavBar({ isAuthenticated, currentUser, handleLogout }) {
         <ul class="flex items-center gap-6 text-sm">
           <li>
             <a
-              class="text-gray-500 transition hover:text-gray-500/75 dark:text-white dark:hover:text-white/75"
+              class="text-gray-500 transition hover:text-yellow-300 :text-white :hover:text-white/75"
               href="/browse"
             >
               Browse
@@ -43,7 +43,7 @@ export default function NavBar({ isAuthenticated, currentUser, handleLogout }) {
 
           <li>
             <a
-              class="text-gray-500 transition hover:text-gray-500/75 dark:text-white dark:hover:text-white/75"
+              class="text-gray-500 transition hover:text-yellow-300 :text-white :hover:text-white/75"
               href="/profile"
             >
               Profile
@@ -52,7 +52,7 @@ export default function NavBar({ isAuthenticated, currentUser, handleLogout }) {
 
           <li>
             <a
-              class="text-gray-500 transition hover:text-gray-500/75 dark:text-white dark:hover:text-white/75"
+              class="text-gray-500 transition hover:text-yellow-300 :text-white :hover:text-white/75"
               href="/myflicks"
             >
               My Flicks
@@ -61,7 +61,7 @@ export default function NavBar({ isAuthenticated, currentUser, handleLogout }) {
 
           <li>
             <a
-              class="text-gray-500 transition hover:text-gray-500/75 dark:text-white dark:hover:text-white/75"
+              class="text-gray-500 transition hover:text-yellow-300 :text-white :hover:text-white/75"
               href="/people"
             >
               Users
@@ -74,14 +74,13 @@ export default function NavBar({ isAuthenticated, currentUser, handleLogout }) {
       <div class="flex items-center gap-4">
         <div class="sm:gap-4 sm:flex">
           <a
-            class="block px-5 py-2.5 text-sm font-medium text-white bg-teal-600 hover:bg-teal-700 dark:hover:bg-teal-500 transition rounded-md"
-            href="/"
-          >
-            Login
+            class="block px-5 py-2.5 text-sm font-medium text-white bg-yellow-600 hover:bg-red-800 :hover:bg-teal-500 transition rounded-md"
+              >
+            <button onClick={handleLogout}>Logout</button>
           </a>
 
           <a
-            class="hidden sm:block px-5 py-2.5 text-sm font-medium text-teal-600 bg-gray-100 rounded-md hover:text-teal-600/75 dark:bg-gray-800 dark:text-white dark:hover:text-white/75 transition"
+            class="hidden sm:block px-5 py-2.5 text-sm font-medium text-teal-600 bg-gray-100 rounded-md hover:text-teal-600/75 :bg-gray-800 :text-white :hover:text-white/75 transition"
             href="/"
           >
             Register
@@ -89,7 +88,7 @@ export default function NavBar({ isAuthenticated, currentUser, handleLogout }) {
         </div>
 
         <button
-          class="block p-2.5 text-gray-600 transition bg-gray-100 rounded md:hidden hover:text-gray-600/75 dark:text-white dark:bg-gray-800 dark:hover:text-white/75"
+          class="block p-2.5 text-gray-600 transition bg-gray-100 rounded md:hidden hover:text-gray-600/75 :text-white :bg-gray-800 :hover:text-white/75"
         >
           <span class="sr-only">Toggle menu</span>
           <svg
