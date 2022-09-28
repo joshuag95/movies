@@ -6,4 +6,6 @@ class MoviesController < ApplicationController
        render json: resp.body
               
     end
+
+   
 end

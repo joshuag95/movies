@@ -1,7 +1,8 @@
 Rails.application.routes.draw do
-  resources :saved_movies, only: [:create, :update, :destroy, :index, :show]
+  resources :saved_movies, only: [:update, :destroy, :index, :show]
   resources :users, only: [:index, :show, :create, :destroy, :update]
   resources :follows, only: [:index, :create, :destroy]
+  resources :movies, only: [:update, :index, :show]
   
   get 'sessions/create'
   get 'sessions/destroy'
@@ -10,6 +11,5 @@ Rails.application.routes.draw do
   delete "/logout", to: "sessions#destroy"
   get '/me', to: "users#show"
   get '/media', to: "movies#from_api"
-  # delete "users/:id", to: "users#destroy"
-  
+  post '/add_movie', to: "saved_movies#create"
 end

@@ -2,5 +2,5 @@ class SavedMovie < ApplicationRecord
   belongs_to :user
   belongs_to :movie
 
-  validates :user_id, uniqueness: true
+  validates :movie_id, uniqueness: true
 end

@@ -23,17 +23,11 @@ ActiveRecord::Schema[7.0].define(version: 2022_09_21_162329) do
 
   create_table "movies", force: :cascade do |t|
     t.string "title"
-    t.string "genre"
-    t.integer "year"
-    t.string "director"
-    t.boolean "have_watched"
+    t.string "image"
     t.string "summary"
-    t.string "review"
-    t.integer "rating"
-    t.bigint "user_id", null: false
+    t.boolean "watched", default: false
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
-    t.index ["user_id"], name: "index_movies_on_user_id"
   end
 
   create_table "saved_movies", force: :cascade do |t|
@@ -54,7 +48,6 @@ ActiveRecord::Schema[7.0].define(version: 2022_09_21_162329) do
     t.datetime "updated_at", null: false
   end
 
-  add_foreign_key "movies", "users"
   add_foreign_key "saved_movies", "movies"
   add_foreign_key "saved_movies", "users"
 end
