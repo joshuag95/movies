@@ -21,8 +21,8 @@ console.log(currentUser)
                 body: JSON.stringify(followData), 
             })
             .then((resp) => resp.json())
-            .then((info) => {console.log(info);
-            })
+            .then((info) => console.log(info)
+            )
             setFollowed(true)
             
     }

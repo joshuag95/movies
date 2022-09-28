@@ -16,7 +16,7 @@ export default function Media({currentUser}) {
 
     console.log(currentUser)
     return (
-        <MediaContainer tvStuff = {tvStuff} />
+        <MediaContainer tvStuff = {tvStuff} currentUser={currentUser} />
     )
 
 }
