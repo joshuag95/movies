@@ -7,9 +7,9 @@ export default function Profile({ currentUser, setCurrentUser }) {
 
     const [areYouSure, setAreYouSure] = useState(false)
     const [edit, setEdit] = useState(false)
-    const [name, setName] = useState(currentUser.name)
-    const [email, setEmail] = useState(currentUser.email)
-    const [username, setUsername] = useState(currentUser.username)
+    const [newName, setName] = useState(currentUser.name)
+    const [newEmail, setEmail] = useState(currentUser.email)
+    const [newUsername, setUsername] = useState(currentUser.username)
     const [showDetails, setShowDetails] = useState(false)
     const [seeFollowers, setSeeFollowers] = useState(true)
     const [following, setFollowing] = useState([])
@@ -31,9 +31,9 @@ export default function Profile({ currentUser, setCurrentUser }) {
             },
             body: JSON.stringify({ 
             
-                name: name,
-                email: email,
-                username: username
+                name: newName,
+                email: newEmail,
+                username: newUsername
             }),
         })
             .then(res => res.json())
@@ -110,9 +110,9 @@ export default function Profile({ currentUser, setCurrentUser }) {
                         </div>
                         :
                         <form onSubmit={changeDetails} className='edit form'>
-                            <h3>Name:<input placeholder={name} onChange={(e) => setName(e.target.value)}></input></h3>
-                            <h3>Email:<input placeholder={email} onChange={(e) => setEmail(e.target.value)}></input></h3>
-                            <h3>Username:<input placeholder={username} onChange={(e) => setUsername(e.target.value)}></input></h3>
+                            <h3>Name:<input placeholder={currentUser.name} onChange={(e) => setName(e.target.value)}></input></h3>
+                            <h3>Email:<input placeholder={currentUser.email} onChange={(e) => setEmail(e.target.value)}></input></h3>
+                            <h3>Username:<input placeholder={currentUser.username} onChange={(e) => setUsername(e.target.value)}></input></h3>
                             <input type='submit'></input> <button onClick={handleEdit}>Cancel Edits</button>
                         </form>
                         }

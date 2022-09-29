@@ -26,9 +26,11 @@ class UsersController < ApplicationController
       end
 
       def update
-        user = current_user
-            user.update(update_params)
-            render json: user
+        user = User.find_by(id: params[:id])
+            if user
+              user.update(update_params)
+              render json: user
+            end
         end
 
       def destroy
@@ -37,11 +39,11 @@ class UsersController < ApplicationController
         head :no_content
       end
 
-      # def user_movies
-      #   user = current_user
-      #   render json: 
+      def user_movies
+        user = current_user
+        
 
-      # end
+      end
 
       private
 

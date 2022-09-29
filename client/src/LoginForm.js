@@ -58,6 +58,7 @@ const LoginForm = ({setCurrentUser, setIsAuthenticated, isAuthenticated}) => {
             />
             <label htmlFor="password">Password:</label>
             <input
+              required="password"
               id="password-input"
               type="password"
               name="password"

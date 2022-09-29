@@ -75,6 +75,7 @@ const SignupForm = ({ setCurrentUser }) => {
       />
       <label htmlFor="password">Password:</label>
       <input
+        required="password"
         id="password-signup-input"
         type="password"
         name="password"
