@@ -1,9 +1,9 @@
 import React, { useEffect, useState } from "react";
 import MediaContainer from "./MediaContainer";
 
-export default function Media({currentUser}) {
+export default function Media({currentUser, tvStuff, setTvStuff}) {
 
-    const [tvStuff, setTvStuff] = useState([])
+   
 
     useEffect(() => {
         fetch("/media")
@@ -16,7 +16,7 @@ export default function Media({currentUser}) {
 
     console.log(currentUser)
     return (
-        <MediaContainer tvStuff = {tvStuff} currentUser={currentUser} />
+        <MediaContainer tvStuff = {tvStuff} currentUser={currentUser} setTvStuff={setTvStuff} />
     )
 
 }

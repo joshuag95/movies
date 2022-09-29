@@ -1,4 +1,6 @@
 class UsersController < ApplicationController
+  before_action :authorize
+  skip_before_action :authorize, only: [:create]
 
     def index 
         users = User.all
@@ -24,8 +26,8 @@ class UsersController < ApplicationController
       end
 
       def update
-        user = User.find_by(id: params[:id])
-            user.update!(user_params)
+        user = current_user
+            user.update(update_params)
             render json: user
         end
 
@@ -35,10 +37,24 @@ class UsersController < ApplicationController
         head :no_content
       end
 
+      # def user_movies
+      #   user = current_user
+      #   render json: 
+
+      # end
+
+      private
+
     def user_params
         params.permit(:name, :username, :email, :password, :id)
     end
 
-    
+    def update_params
+      params.permit(:name, :username, :email, :id)
+    end
+
+    def authorize
+      return render json: { error: "Not authorized" }, status: :unauthorized unless session.include? :user_id
+    end
 end
 

@@ -5,7 +5,6 @@ class CreateMovies < ActiveRecord::Migration[7.0]
       t.string :image
       t.string :summary
       t.boolean :watched, default: false
-      t.timestamps
     end
   end
 end

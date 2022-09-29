@@ -2,13 +2,13 @@ import React from "react";
 import MediaCard from "./MediaCard";
 
 
-function MediaContainer({tvStuff, currentUser}) {
+function MediaContainer({tvStuff, currentUser, setTvStuff}) {
 
 
-   console.log(currentUser)
+   
 
    const array = tvStuff.map(m => {
-   return ( <MediaCard key = {m.id} name = {m.title} image = {m.image.original} summary = {m.summary} m={m} currentUser={currentUser} />
+   return ( <MediaCard key = {m.id} name = {m.title} image = {m.image.original} summary = {m.summary} m={m} currentUser={currentUser} setTvStuff={setTvStuff} />
    )})
 
     return (

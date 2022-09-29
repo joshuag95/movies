@@ -10,31 +10,25 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema[7.0].define(version: 2022_09_21_162329) do
+ActiveRecord::Schema[7.0].define(version: 2022_09_29_160535) do
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
 
   create_table "follows", force: :cascade do |t|
     t.integer "follower_id"
     t.integer "followed_user_id"
-    t.datetime "created_at", null: false
-    t.datetime "updated_at", null: false
   end
 
   create_table "movies", force: :cascade do |t|
     t.string "title"
     t.string "image"
     t.string "summary"
-    t.boolean "watched", default: false
-    t.datetime "created_at", null: false
-    t.datetime "updated_at", null: false
   end
 
   create_table "saved_movies", force: :cascade do |t|
     t.bigint "user_id", null: false
     t.bigint "movie_id", null: false
-    t.datetime "created_at", null: false
-    t.datetime "updated_at", null: false
+    t.boolean "watched", default: false
     t.index ["movie_id"], name: "index_saved_movies_on_movie_id"
     t.index ["user_id"], name: "index_saved_movies_on_user_id"
   end

@@ -5,7 +5,7 @@ function UserCard({user, currentUser, setCurrentUser}){
    
 
     const [followed, setFollowed] = useState(false)
-console.log(currentUser)
+
 
     const handleFollow = () => {
         const followData = {
@@ -33,7 +33,7 @@ console.log(currentUser)
         <div>
           <h6>Name: {user.name}</h6>
           <h6>Username: {user.username}</h6>
-          <button onClick={handleFollow}>Follow</button>
+          {!followed ? <button onClick={handleFollow}>Follow</button> : <button onClick={handleFollow}>Unfollow</button>}
         </div>
     )
 }

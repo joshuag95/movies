@@ -12,4 +12,5 @@ Rails.application.routes.draw do
   get '/me', to: "users#show"
   get '/media', to: "movies#from_api"
   post '/add_movie', to: "saved_movies#create"
+  get 'user_movies', to: "users#user_movies"
 end

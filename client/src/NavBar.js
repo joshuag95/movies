@@ -3,16 +3,16 @@ import { NavLink } from "react-router-dom"
 export default function NavBar({ isAuthenticated, currentUser, handleLogout }) {
 
 
-    return (
+  return (
 
 
-        <header class="bg-black :bg-gray-900">
-{!isAuthenticated ? null :
-  <div
-    class="flex items-center h-16 max-w-screen-xl gap-8 px-4 mx-auto sm:px-6 lg:px-8"
-  >
- 
-    {/* <a class="block text-yellow-300 :text-red-100" href="/">
+    <header class="bg-black :bg-gray-900">
+      {!isAuthenticated ? null :
+        <div
+          class="flex items-center h-16 max-w-screen-xl gap-8 px-4 mx-auto sm:px-6 lg:px-8"
+        >
+
+          {/* <a class="block text-yellow-300 :text-red-100" na="/">
       <span class="sr-only">Home</span>
       <svg
         class="h-8"
@@ -27,108 +27,118 @@ export default function NavBar({ isAuthenticated, currentUser, handleLogout }) {
       </svg>
     </a> */}
 
-    <div class="flex items-center justify-end flex-1 md:justify-between">
-      <nav class="hidden md:block" aria-labelledby="header-navigation">
-        <h2 class="sr-only" id="header-navigation">Header navigation</h2>
+          <div class="flex items-center justify-end flex-1 md:justify-between">
+            <nav class="hidden md:block" aria-labelledby="header-navigation">
+              <h2 class="sr-only" id="header-navigation">Header navigation</h2>
 
-        <ul class="flex items-center gap-6 text-sm">
-          <li>
-            <a
-              class="text-gray-500 transition hover:text-yellow-300 :text-white :hover:text-white/75"
-              href="/browse"
-            >
-              Browse
-            </a>
-          </li>
+              <ul class="flex items-center gap-6 text-sm">
+                <li>
+                  <a
+                    class="text-gray-500 transition hover:text-yellow-300 :text-white :hover:text-white/75">
+                    <NavLink path to="/browse">
 
-          <li>
-            <a
-              class="text-gray-500 transition hover:text-yellow-300 :text-white :hover:text-white/75"
-              href="/profile"
-            >
-              Profile
-            </a>
-          </li>
+                      Browse
+                    </NavLink>
+                  </a>
+                </li>
 
-          <li>
-            <a
-              class="text-gray-500 transition hover:text-yellow-300 :text-white :hover:text-white/75"
-              href="/myflicks"
-            >
-              My Flicks
-            </a>
-          </li>
+                <li>
+                  <a
+                    class="text-gray-500 transition hover:text-yellow-300 :text-white :hover:text-white/75"
 
-          <li>
-            <a
-              class="text-gray-500 transition hover:text-yellow-300 :text-white :hover:text-white/75"
-              href="/people"
-            >
-              Users
-            </a>
-          </li>
+                  >
+                    <NavLink path to="/profile">
+                      Profile
+                    </NavLink>
 
-        </ul>
-      </nav>
+                  </a>
+                </li>
 
-      <div class="flex items-center gap-4">
-        <div class="sm:gap-4 sm:flex">
-          <a
-            class="block px-5 py-2.5 text-sm font-medium text-white bg-yellow-600 hover:bg-red-800 :hover:bg-teal-500 transition rounded-md"
+                <li>
+                  <a
+                    class="text-gray-500 transition hover:text-yellow-300 :text-white :hover:text-white/75"
+
+                  >
+                    <NavLink path to="/myflicks">
+                      My Flicks
+                    </NavLink>
+
+                  </a>
+                </li>
+
+                <li>
+                  <a
+                    class="text-gray-500 transition hover:text-yellow-300 :text-white :hover:text-white/75"
+                   
+                  >
+                     <NavLink path to="/people">
+                     Users
+                    </NavLink>
+                   
+                  </a>
+                </li>
+
+              </ul>
+            </nav>
+
+            <div class="flex items-center gap-4">
+              <div class="sm:gap-4 sm:flex">
+                <a
+                  class="block px-5 py-2.5 text-sm font-medium text-white bg-yellow-600 hover:bg-red-800 :hover:bg-teal-500 transition rounded-md"
+                >
+                  <button onClick={handleLogout}>Logout</button>
+                </a>
+
+                {/* <a
+                  class="hidden sm:block px-5 py-2.5 text-sm font-medium text-teal-600 bg-gray-100 rounded-md hover:text-teal-600/75 :bg-gray-800 :text-white :hover:text-white/75 transition"
+                  NavLink="/"
+                >
+                  Register
+                </a> */}
+              </div>
+
+              <button
+                class="block p-2.5 text-gray-600 transition bg-gray-100 rounded md:hidden hover:text-gray-600/75 :text-white :bg-gray-800 :hover:text-white/75"
               >
-            <button onClick={handleLogout}>Logout</button>
-          </a>
+                <span class="sr-only">Toggle menu</span>
+                <svg
+                  xmlns="http://www.w3.org/2000/svg"
+                  class="w-5 h-5"
+                  fill="none"
+                  viewBox="0 0 24 24"
+                  stroke="currentColor"
+                  stroke-width="2"
+                >
+                  <path
+                    stroke-linecap="round"
+                    stroke-linejoin="round"
+                    d="M4 6h16M4 12h16M4 18h16"
+                  />
+                </svg>
+              </button>
+            </div>
+          </div>
+        </div>}
 
-          <a
-            class="hidden sm:block px-5 py-2.5 text-sm font-medium text-teal-600 bg-gray-100 rounded-md hover:text-teal-600/75 :bg-gray-800 :text-white :hover:text-white/75 transition"
-            href="/"
-          >
-            Register
-          </a>
-        </div>
+    </header>
 
-        <button
-          class="block p-2.5 text-gray-600 transition bg-gray-100 rounded md:hidden hover:text-gray-600/75 :text-white :bg-gray-800 :hover:text-white/75"
-        >
-          <span class="sr-only">Toggle menu</span>
-          <svg
-            xmlns="http://www.w3.org/2000/svg"
-            class="w-5 h-5"
-            fill="none"
-            viewBox="0 0 24 24"
-            stroke="currentColor"
-            stroke-width="2"
-          >
-            <path
-              stroke-linecap="round"
-              stroke-linejoin="round"
-              d="M4 6h16M4 12h16M4 18h16"
-            />
-          </svg>
-        </button>
-      </div>
-    </div>
-  </div>}
+    //         <div>
 
-</header>
 
-//         <div>
+    //             {!isAuthenticated ? null 
+    //             : 
+    //             <div>
+    //                 <NavLink path to="/browse">Browse</NavLink>
+    //                 <NavLink path to="/profile">Profile</NavLink>
+    //                 <NavLink path to="/myflicks">My Flicks</NavLink>
+    //                 <NavLink path to="/people">Users</NavLink>
 
-           
-//             {!isAuthenticated ? null 
-//             : 
-//             <div>
-//                 <NavLink path to="/browse">Browse</NavLink>
-//                 <NavLink path to="/profile">Profile</NavLink>
-//                 <NavLink path to="/myflicks">My Flicks</NavLink>
-//                 <NavLink path to="/people">Users</NavLink>
-
-//             <button onClick={handleLogout}>Logout</button>
-//             </div>
-//             }
+    //             <button onClick={handleLogout}>Logout</button>
+    //             </div>
+    //             }
 
 
 
-//         </div>
-    )
+    //         </div>
+  )
 }

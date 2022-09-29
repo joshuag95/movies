@@ -12,7 +12,7 @@ export default function Profile({ currentUser, setCurrentUser }) {
     const [username, setUsername] = useState(currentUser.username)
     const [showDetails, setShowDetails] = useState(false)
     const [seeFollowers, setSeeFollowers] = useState(true)
-
+    const [following, setFollowing] = useState([])
 
     const handleSeeFollowers = () => {
         setSeeFollowers(!seeFollowers)
@@ -37,7 +37,7 @@ export default function Profile({ currentUser, setCurrentUser }) {
             }),
         })
             .then(res => res.json())
-            .then(currentUser => setCurrentUser(currentUser))
+            .then(info => setCurrentUser(info))
         e.target.reset()
         handleEdit()
         
@@ -64,18 +64,18 @@ export default function Profile({ currentUser, setCurrentUser }) {
 
     }
 
-    const followerArray = currentUser.followers
+    
 
-    const follower = followerArray.map((f) => {
+    const followerArray = currentUser.followers.map((f) => {
         return (
             <FollowCard name={f.name} username={f.username} key = {f.id} />
         )
     })
 
 
-    const followed = currentUser.followings
+    
 
-    const following = followed.map((f) => {
+    const followingArray = currentUser.followings.map((f) => {
         return (
             <FollowingCard name={f.name} key = {f.id} username={f.username}/>
         )
@@ -123,13 +123,13 @@ export default function Profile({ currentUser, setCurrentUser }) {
                    {seeFollowers ? 
                    <div>
                     <h5>Following</h5>
-                    {following}
+                    {followingArray}
                    </div>
                    
                    : 
                    <div>
                         <h5>Your Followers</h5>
-                        {follower}
+                        {followerArray}
                     </div>}
                     
                 </div>

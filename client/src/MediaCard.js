@@ -1,8 +1,9 @@
 import { useState } from "react"
 
-export default function MediaCard({name, image, summary, m, setCurrentUser}){
+export default function MediaCard({name, image, m, setCurrentUser, setUserMovies}){
 
 const [watched, setWatched] = useState(false)
+
 
 const handleAddToList = () => {
     const movieData = {
@@ -18,13 +19,15 @@ const handleAddToList = () => {
         }, body: JSON.stringify(movieData),
         })
         .then((r) => r.json())
-        .then((info) => console.log(info))
+        .then(info => {
+              setUserMovies(info)
+        } )
 }
 
 
 const handleUpdateWatched = () => {
     setWatched((watched) => !watched)
-    fetch(`/movies`, {
+    fetch(`/saved_movies`, {
         method: "PATCH",
         headers: {
             'Content-type': "application/json",
