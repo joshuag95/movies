@@ -11,8 +11,9 @@ export default function MyFlicks({currentUser, tvStuff, setTvStuff}){
             .then(r => r.json())
             .then(stuffs => {
                 setUserMovies(stuffs)
+                console.log(stuffs)
             })
-                console.log("triggered")
+                
     }, []);
 
 console.log(userMovies)

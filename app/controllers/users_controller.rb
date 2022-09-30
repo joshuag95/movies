@@ -41,8 +41,8 @@ class UsersController < ApplicationController
 
       def user_movies
         user = current_user
-        
-
+        user_flicks = user.movies
+        render json: user_flicks
       end
 
       private

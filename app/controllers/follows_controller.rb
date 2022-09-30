@@ -3,14 +3,18 @@ before_action :authorize
     def create
         user = current_user
         newFollow = Follow.find_or_create_by(followParams)
-        render json: user.followings, status: :created
+        render json: user, status: :created
         
     end
 
+    # def my_following
+    #     user = current_user
+    #     render json: user.followings
+    # end
 
-    def unfollow
-        
-    end
+    # def unfollow
+
+    # end
 private
 
     def followParams

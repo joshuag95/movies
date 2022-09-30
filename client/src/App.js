@@ -53,7 +53,7 @@ function App() {
 			{!isAuthenticated ?
 				<Routes>
 					<Route path="/" element={<Home isAuthenticated={isAuthenticated} setIsAuthenticated={setIsAuthenticated} setCurrentUser={setCurrentUser} currentUser={currentUser} handleLogout={handleLogout} />} />
-					<Route path="*" element={<Navigate to="/" replace/>}/>
+					<Route path="*" element={<Navigate to="/" replace />}/>
 
 				</Routes>
 				:

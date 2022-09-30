@@ -21,7 +21,7 @@ function UserCard({user, currentUser, setCurrentUser}){
                 body: JSON.stringify(followData), 
             })
             .then((resp) => resp.json())
-            .then((info) => console.log(info)
+            .then((info) => setCurrentUser(info)
             )
             setFollowed(true)
             

@@ -35,6 +35,7 @@ export default function NavBar({ isAuthenticated, currentUser, handleLogout }) {
                 <li>
                   <a
                     class="text-gray-500 transition hover:text-yellow-300 :text-white :hover:text-white/75">
+                      {/* This used to be an href="" but I took it out and added in NAVLINK, this is only for the NAVBAR component. I'm not sure how tailwind affects routes */}
                     <NavLink path to="/browse">
 
                       Browse
