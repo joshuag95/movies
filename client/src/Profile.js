@@ -119,7 +119,7 @@ export default function Profile({ currentUser, setCurrentUser }) {
                 </div>
                 :
                 <div>
-                   <button onClick={handleSeeFollowers}>{seeFollowers ? "Who Am I Following?" : " See Followers"}</button>
+                   <button onClick={handleSeeFollowers}>{seeFollowers ? "See Followers?" : "Who am I following?"}</button>
                    {seeFollowers ? 
                    <div>
                     <h5>Following</h5>

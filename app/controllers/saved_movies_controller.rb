@@ -1,5 +1,5 @@
 class SavedMoviesController < ApplicationController
-before_action :authorize
+
 
     def create
         user = current_user
@@ -15,8 +15,6 @@ before_action :authorize
     def movie_params
         params.permit(:title, :summary, :image)
     end
-    def authorize
-        return render json: { error: "Not authorized" }, status: :unauthorized unless session.include? :user_id
-      end
+    
 
     end

@@ -2,7 +2,7 @@ import React, { useState } from "react";
 import { useNavigate } from "react-router-dom";
 
 
-const LoginForm = ({setCurrentUser, setIsAuthenticated, isAuthenticated}) => {
+const LoginForm = ({setCurrentUser, setIsAuthenticated, isAuthenticated, setAlreadyAccount}) => {
   const [formData, setFormData] = useState({})
 
   const handleChange = (e) => {
@@ -71,7 +71,7 @@ const LoginForm = ({setCurrentUser, setIsAuthenticated, isAuthenticated}) => {
         
         {!isAuthenticated ? <div className="signupPrompt">
             <p>Don't have an Account?</p>
-            <button onClick={() => {}}>Click Here To Create An Account</button>
+            <button onClick={() => {setAlreadyAccount((alreadyAccount) => !alreadyAccount)}}>Click Here To Create An Account</button>
             </div> : null}
       </div>
   );
