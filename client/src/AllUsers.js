@@ -20,7 +20,7 @@ console.log(allUsers)
     })
 
     return(
-        <div>{usersArray}</div>
+        <div className="grid grid-cols-6 gap-5">{usersArray}</div>
     )
 }
 

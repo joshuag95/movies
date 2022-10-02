@@ -122,15 +122,21 @@ export default function Profile({ currentUser, setCurrentUser }) {
                    <button onClick={handleSeeFollowers}>{seeFollowers ? "See Followers?" : "Who am I following?"}</button>
                    {seeFollowers ? 
                    <div>
-                    <h5>Following</h5>
+                    <h5 className="text-xl font-bold text-yellow-600">Following</h5>
+                    <br/>
+                    <div className="grid grid-cols-6 gap-5">
                     {followingArray}
+                    </div>
                    </div>
                    
                    : 
                    <div>
-                        <h5>Your Followers</h5>
-                        {followerArray}
-                    </div>}
+                    <h5 className="text-xl font-bold text-yellow-600">Followers</h5>
+                    <br/>
+                    <div className="grid grid-cols-6 gap-5">
+                    {followerArray}
+                    </div>
+                   </div>}
                     
                 </div>
 

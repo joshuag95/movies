@@ -12,7 +12,8 @@ function MediaContainer({tvStuff, currentUser, setTvStuff}) {
    )})
 
     return (
-            <div>
+
+            <div className="grid grid-cols-8 gap-5">
               {array}
             </div>
         

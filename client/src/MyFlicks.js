@@ -26,9 +26,10 @@ console.log(userMovies)
     
     return (
         <div>
-            <h1>My Movies</h1>
+            <h1 className="mt-6 text-2xl font-bold text-Red sm:text-3xl md:text-4xl">My Movies</h1>
+            <div className="grid grid-cols-8 gap-5">
             {flicks}
-            
+            </div>
             </div>
     )
 }

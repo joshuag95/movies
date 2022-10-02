@@ -16,6 +16,7 @@ export default function Media({currentUser, tvStuff, setTvStuff}) {
 
     console.log(currentUser)
     return (
+        
         <MediaContainer tvStuff = {tvStuff} currentUser={currentUser} setTvStuff={setTvStuff} />
     )
 
