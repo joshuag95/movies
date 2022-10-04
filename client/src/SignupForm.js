@@ -56,27 +56,18 @@ const SignupForm = ({ setCurrentUser, setIsAuthenticated }) => {
     <section className="bg-grey dark:bg-gray-900">
       <div className="lg:grid lg:min-h-screen lg:grid-cols-12">
         <section
-          className="relative flex items-end h-32 bg-gray-900 lg:col-span-5 lg:h-full xl:col-span-6"
+          className="relative flex items-end h-32 bg-gray-900 lg:col-span-6 lg:h-full xl:col-span-6"
         >
           <img
             alt="Night"
-            src="https://images.unsplash.com/photo-1617195737496-bc30194e3a19?ixlib=rb-1.2.1&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=870&q=80"
-            className="absolute inset-0 object-cover w-full h-full opacity-80"
+            src="https://w0.peakpx.com/wallpaper/277/14/HD-wallpaper-cinema-movies-theatre-popcorn-entertaintment-chill.jpg"
+            className="absolute inset-0 object-cover w-full h-full opacity-40"
           />
 
           <div className="hidden lg:block lg:relative lg:p-12">
-            <a className="block text-white" href="/">
-              <span className="sr-only">Home</span>
-              <svg
-                className="h-8 sm:h-10"
-                viewBox="0 0 28 24"
-                fill="none"
-                xmlns="http://www.w3.org/2000/svg"
-              >
-              </svg>
-            </a>
+           
 
-            <h1 className="mt-6 text-2xl font-bold text-white sm:text-3xl md:text-4xl">
+            <h1 className="mt-6 text-2xl font-bold text-yellow-500 sm:text-3xl md:text-4xl">
               Welcome to NextFlick!
             </h1>
 

@@ -24,13 +24,13 @@ export default function Profile({ currentUser, setCurrentUser }) {
 
     const changeDetails = (e) => {
         e.preventDefault()
-            fetch(`/users/${currentUser.id}`, {
+        fetch(`/users/${currentUser.id}`, {
             method: "PATCH",
             headers: {
                 'Content-type': "application/json",
             },
-            body: JSON.stringify({ 
-            
+            body: JSON.stringify({
+
                 name: newName,
                 email: newEmail,
                 username: newUsername
@@ -40,7 +40,7 @@ export default function Profile({ currentUser, setCurrentUser }) {
             .then(info => setCurrentUser(info))
         e.target.reset()
         handleEdit()
-        
+
     }
 
     const handleShowDetails = () => {
@@ -50,7 +50,7 @@ export default function Profile({ currentUser, setCurrentUser }) {
         setAreYouSure((areYouSure) => !areYouSure)
 
     }
-   
+
     const navigate = useNavigate()
 
     function handleDelete() {
@@ -64,30 +64,34 @@ export default function Profile({ currentUser, setCurrentUser }) {
 
     }
 
-    
+
 
     const followerArray = currentUser.followers.map((f) => {
         return (
-            <FollowCard name={f.name} username={f.username} key = {f.id} />
+            <FollowCard name={f.name} username={f.username} key={f.id} />
         )
     })
 
 
-    
+
 
     const followingArray = currentUser.followings.map((f) => {
         return (
-            <FollowingCard name={f.name} key = {f.id} username={f.username}/>
+            <FollowingCard name={f.name} key={f.id} username={f.username} />
         )
     })
 
     return (
         <div>
-            <button onClick={handleShowDetails}>Profile details</button>
+            <button className="inline-block px-7 py-1 text-sm font-medium text-white transition bg-red-900 border border-yellow-700 rounded-md shrink-0 hover:bg-transparent hover:text-red-700 focus:outline-none focus:ring active:text-yellow-700 dark:hover:bg-red-700 dark:hover:text-white" onClick={handleShowDetails}>
+                Profile details
+            </button>
             {showDetails ?
                 <div>
-                    <h1>Profile</h1>
-                    <button onClick={handleEdit}>Edit Details</button>
+                    <h1 className=" text-lg mt-4 leading-relaxed text-yellow-600">Profile</h1>
+                    <button onClick={handleEdit} className="inline-block px-7 py-1 text-sm font-medium text-white transition bg-red-900 border border-yellow-700 rounded-md shrink-0 hover:bg-transparent hover:text-red-700 focus:outline-none focus:ring active:text-yellow-700 dark:hover:bg-red-700 dark:hover:text-white">
+                        Edit Details
+                    </button>
                     {!edit ?
                         <div>
 
@@ -110,34 +114,78 @@ export default function Profile({ currentUser, setCurrentUser }) {
                         </div>
                         :
                         <form onSubmit={changeDetails} className='edit form'>
-                            <h3>Name:<input placeholder={currentUser.name} onChange={(e) => setName(e.target.value)}></input></h3>
-                            <h3>Email:<input placeholder={currentUser.email} onChange={(e) => setEmail(e.target.value)}></input></h3>
-                            <h3>Username:<input placeholder={currentUser.username} onChange={(e) => setUsername(e.target.value)}></input></h3>
-                            <input type='submit'></input> <button onClick={handleEdit}>Cancel Edits</button>
+                            <label
+                                for="name"
+                                class="block text-sm font-medium text-yellow-500 dark:text-gray-200"
+                            >
+                                Name
+                            </label>
+
+                            <input
+                                type="name"
+                                id="name"
+                                placeholder={currentUser.name}
+                                class="mt-1 w-relaitve rounded-md border-gray-200 shadow-sm dark:border-gray-700 dark:bg-gray-800 dark:text-white sm:text-sm"
+                            />
+                            <label
+                                for="username"
+                                class="block text-sm font-medium text-yellow-500 dark:text-gray-200"
+                            >
+                                Username
+                            </label>
+
+                            <input
+                                type="username"
+                                id="username"
+                                placeholder={currentUser.name}
+                                class="mt-1 w-relaitve rounded-md border-gray-200 shadow-sm dark:border-gray-700 dark:bg-gray-800 dark:text-white sm:text-sm"
+                            />
+                            <label
+                                for="email"
+                                class="block text-sm font-medium text-yellow-500 dark:text-gray-200"
+                            >
+                                Email
+                            </label>
+
+                            <input
+                                type="email"
+                                id="email"
+                                placeholder={currentUser.name}
+                                class="mt-1 w-relaitve rounded-md border-gray-200 shadow-sm dark:border-gray-700 dark:bg-gray-800 dark:text-white sm:text-sm"
+                            />
+                            {/* <h3>Name:<input placeholder={currentUser.name} onChange={(e) => setName(e.target.value)} ></input></h3> */}
+                            {/* <h3>Email:<input placeholder={currentUser.email} onChange={(e) => setEmail(e.target.value)}></input></h3>
+                            <h3>Username:<input placeholder={currentUser.username} onChange={(e) => setUsername(e.target.value)}></input></h3> */}
+                            <br/>
+                            <br/>
+                            <input
+                             
+                            type='submit' className="inline-block px-7 py-1 text-sm font-medium text-white transition bg-yellow-700 border border-yellow-700 rounded-md shrink-0 hover:bg-transparent hover:text-red-700 focus:outline-none focus:ring active:text-yellow-700 dark:hover:bg-red-700 dark:hover:text-white"  ></input>
+                            <button onClick={handleEdit} className="inline-block px-7 py-1 text-sm font-medium text-white transition bg-red-900 border border-yellow-700 rounded-md shrink-0 hover:bg-transparent hover:text-red-700 focus:outline-none focus:ring active:text-yellow-700 dark:hover:bg-red-700 dark:hover:text-white">Cancel Edits</button>
                         </form>
-                        }
+                    }
                 </div>
                 :
                 <div>
-                   <button onClick={handleSeeFollowers}>{seeFollowers ? "See Followers?" : "Who am I following?"}</button>
-                   {seeFollowers ? 
-                   <div>
-                    <h5 className="text-xl font-bold text-yellow-600">Following</h5>
-                    <br/>
-                    <div className="grid grid-cols-6 gap-5">
-                    {followingArray}
-                    </div>
-                   </div>
-                   
-                   : 
-                   <div>
-                    <h5 className="text-xl font-bold text-yellow-600">Followers</h5>
-                    <br/>
-                    <div className="grid grid-cols-6 gap-5">
-                    {followerArray}
-                    </div>
-                   </div>}
-                    
+                    <button onClick={handleSeeFollowers}>{seeFollowers ? "See Followers?" : "Who am I following?"}</button>
+                    {seeFollowers ?
+                        <div>
+                            <h5 className="text-xl font-bold text-yellow-600">Following</h5>
+                            <br />
+                            <div className="grid grid-cols-6 gap-5">
+                                {followingArray}
+                            </div>
+                        </div>
+
+                        :
+                        <div>
+                            <h5 className="text-xl font-bold text-yellow-600">Followers</h5>
+                            <br />
+                            <div className="grid grid-cols-6 gap-5">
+                                {followerArray}
+                            </div>
+                        </div>}
+
                 </div>
 
             }
