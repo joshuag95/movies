@@ -6,16 +6,16 @@ export default function NavBar({ isAuthenticated, currentUser, handleLogout }) {
   return (
 
 
-    <header class="bg-black :bg-gray-900">
+    <header className="bg-black :bg-gray-900">
       {!isAuthenticated ? null :
         <div
-          class="flex items-center h-16 max-w-screen-xl gap-8 px-4 mx-auto sm:px-6 lg:px-8"
+          className="flex items-center h-16 max-w-screen-xl gap-8 px-4 mx-auto sm:px-6 lg:px-8"
         >
 
-          {/* <a class="block text-yellow-300 :text-red-100" na="/">
-      <span class="sr-only">Home</span>
+          {/* <a className="block text-yellow-300 :text-red-100" na="/">
+      <span className="sr-only">Home</span>
       <svg
-        class="h-8"
+        className="h-8"
         viewBox="0 0 28 24"
         fill="none"
         xmlns="http://www.w3.org/2000/svg"
@@ -27,14 +27,14 @@ export default function NavBar({ isAuthenticated, currentUser, handleLogout }) {
       </svg>
     </a> */}
 
-          <div class="flex items-center justify-end flex-1 md:justify-between">
-            <nav class="hidden md:block" aria-labelledby="header-navigation">
-              <h2 class="sr-only" id="header-navigation">Header navigation</h2>
+          <div className="flex items-center justify-end flex-1 md:justify-between">
+            <nav className="hidden md:block" aria-labelledby="header-navigation">
+              <h2 className="sr-only" id="header-navigation">Header navigation</h2>
 
-              <ul class="flex items-center gap-6 text-sm">
+              <ul className="flex items-center gap-6 text-sm">
                 <li>
                   <a
-                    class="text-gray-500 transition hover:text-yellow-300 :text-white :hover:text-white/75">
+                    className="text-gray-500 transition hover:text-yellow-300 :text-white :hover:text-white/75">
                       {/* This used to be an href="" but I took it out and added in NAVLINK, this is only for the NAVBAR component. I'm not sure how tailwind affects routes */}
                     <NavLink path to="/browse">
 
@@ -45,7 +45,7 @@ export default function NavBar({ isAuthenticated, currentUser, handleLogout }) {
 
                 <li>
                   <a
-                    class="text-gray-500 transition hover:text-yellow-300 :text-white :hover:text-white/75"
+                    className="text-gray-500 transition hover:text-yellow-300 :text-white :hover:text-white/75"
 
                   >
                     <NavLink path to="/profile">
@@ -57,7 +57,7 @@ export default function NavBar({ isAuthenticated, currentUser, handleLogout }) {
 
                 <li>
                   <a
-                    class="text-gray-500 transition hover:text-yellow-300 :text-white :hover:text-white/75"
+                    className="text-gray-500 transition hover:text-yellow-300 :text-white :hover:text-white/75"
 
                   >
                     <NavLink path to="/myflicks">
@@ -69,7 +69,7 @@ export default function NavBar({ isAuthenticated, currentUser, handleLogout }) {
 
                 <li>
                   <a
-                    class="text-gray-500 transition hover:text-yellow-300 :text-white :hover:text-white/75"
+                    className="text-gray-500 transition hover:text-yellow-300 :text-white :hover:text-white/75"
                    
                   >
                      <NavLink path to="/people">
@@ -82,16 +82,16 @@ export default function NavBar({ isAuthenticated, currentUser, handleLogout }) {
               </ul>
             </nav>
 
-            <div class="flex items-center gap-4">
-              <div class="sm:gap-4 sm:flex">
+            <div className="flex items-center gap-4">
+              <div className="sm:gap-4 sm:flex">
                 <a
-                  class="block px-5 py-2.5 text-sm font-medium text-white bg-yellow-600 hover:bg-red-800 :hover:bg-teal-500 transition rounded-md"
+                  className="block px-5 py-2.5 text-sm font-medium text-white bg-yellow-600 hover:bg-red-800 :hover:bg-teal-500 transition rounded-md"
                 >
                   <button onClick={handleLogout}>Logout</button>
                 </a>
 
                 {/* <a
-                  class="hidden sm:block px-5 py-2.5 text-sm font-medium text-teal-600 bg-gray-100 rounded-md hover:text-teal-600/75 :bg-gray-800 :text-white :hover:text-white/75 transition"
+                  className="hidden sm:block px-5 py-2.5 text-sm font-medium text-teal-600 bg-gray-100 rounded-md hover:text-teal-600/75 :bg-gray-800 :text-white :hover:text-white/75 transition"
                   NavLink="/"
                 >
                   Register
@@ -99,12 +99,12 @@ export default function NavBar({ isAuthenticated, currentUser, handleLogout }) {
               </div>
 
               <button
-                class="block p-2.5 text-gray-600 transition bg-gray-100 rounded md:hidden hover:text-gray-600/75 :text-white :bg-gray-800 :hover:text-white/75"
+                className="block p-2.5 text-gray-600 transition bg-gray-100 rounded md:hidden hover:text-gray-600/75 :text-white :bg-gray-800 :hover:text-white/75"
               >
-                <span class="sr-only">Toggle menu</span>
+                <span className="sr-only">Toggle menu</span>
                 <svg
                   xmlns="http://www.w3.org/2000/svg"
-                  class="w-5 h-5"
+                  className="w-5 h-5"
                   fill="none"
                   viewBox="0 0 24 24"
                   stroke="currentColor"

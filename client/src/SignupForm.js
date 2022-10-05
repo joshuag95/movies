@@ -86,7 +86,7 @@ const SignupForm = ({ setCurrentUser, setIsAuthenticated }) => {
             <form action="#" className="grid grid-cols-6 gap-6 mt-8" onSubmit={handleSubmit}>
               <div className="col-span-6 sm:col-span-3">
                 <label
-                  for="name"
+                  htmlFor="name"
                   className="block text-sm font-medium text-700 dark:text-gray-200"
                 >
                   Name (First, Last)
@@ -102,10 +102,10 @@ const SignupForm = ({ setCurrentUser, setIsAuthenticated }) => {
                 />
               </div>
               
-              <div class="col-span-6 sm:col-span-3">
+              <div className="col-span-6 sm:col-span-3">
                 <label
-                  for="Username"
-                  class="block text-md font-medium text-700 dark:text-gray-200"
+                  htmlFor="Username"
+                  className="block text-md font-medium text-700 dark:text-gray-200"
                 >
                   Username
                 </label>
@@ -116,13 +116,13 @@ const SignupForm = ({ setCurrentUser, setIsAuthenticated }) => {
                       name="username"
                       value={formData.username}
                       onChange={handleChange}
-                  class="w-full mt-1 text-md text-gray-700 bg-white border-gray-200 rounded-md shadow-sm dark:bg-gray-800 dark:border-gray-700 dark:text-gray-200"
+                  className="w-full mt-1 text-md text-gray-700 bg-white border-gray-200 rounded-md shadow-sm dark:bg-gray-800 dark:border-gray-700 dark:text-gray-200"
                 />
               </div>
 
               <div className="col-span-6">
                 <label
-                  for="email"
+                  htmlFor="email"
                   className="block text-md font-medium text-700 dark:text-gray-200"
                 >
                   Email
@@ -140,7 +140,7 @@ const SignupForm = ({ setCurrentUser, setIsAuthenticated }) => {
 
               <div className="col-span-6">
                 <label
-                  for="password"
+                  htmlFor="password"
                   className="block text-md font-medium text-700 dark:text-gray-200"
                 >
                   Password
@@ -159,7 +159,7 @@ const SignupForm = ({ setCurrentUser, setIsAuthenticated }) => {
 
               {/* <div className="col-span-6 sm:col-span-3">
                 <label
-                  for="PasswordConfirmation"
+                  htmlFor="PasswordConfirmation"
                   className="block text-sm font-medium text-gray-700 dark:text-gray-200"
                 >
                   Password Confirmation
@@ -174,7 +174,7 @@ const SignupForm = ({ setCurrentUser, setIsAuthenticated }) => {
               </div> */}
 
               {/* <div className="col-span-6">
-                <label for="MarketingAccept" className="flex gap-4">
+                <label htmlFor="MarketingAccept" className="flex gap-4">
                   <input
                     type="checkbox"
                     id="MarketingAccept"
@@ -216,7 +216,8 @@ const SignupForm = ({ setCurrentUser, setIsAuthenticated }) => {
                 </p>
               </div>
             </form>
-            : <LoginForm setAlreadyAccount={setAlreadyAccount} setCurrentUser={setCurrentUser} setIsAuthenticated ={setIsAuthenticated}/>  }
+            : 
+            <LoginForm setAlreadyAccount={setAlreadyAccount} setCurrentUser={setCurrentUser} setIsAuthenticated ={setIsAuthenticated}/>  }
           </div>
         </main>
       </div>
@@ -224,7 +225,7 @@ const SignupForm = ({ setCurrentUser, setIsAuthenticated }) => {
 
 
     // <form onSubmit={handleSubmit}>
-    //   <label htmlFor="name">Name:</label>
+    //   <label htmlhtmlFor="name">Name:</label>
     //   <input
     //     id="name-signup-input"
     //     type="text"
@@ -232,7 +233,7 @@ const SignupForm = ({ setCurrentUser, setIsAuthenticated }) => {
     //     value={formData.name}
     //     onChange={handleChange}
     //   />
-    //   <label htmlFor="email">Email:</label>
+    //   <label htmlhtmlFor="email">Email:</label>
     //   <input
     //     id="email-signup-input"
     //     type="text"
@@ -240,7 +241,7 @@ const SignupForm = ({ setCurrentUser, setIsAuthenticated }) => {
     //     value={formData.email}
     //     onChange={handleChange}
     //   />
-    //   <label htmlFor="username">Username:</label>
+    //   <label htmlhtmlFor="username">Username:</label>
     //   <input
     //     id="username-signup-input"
     //     type="text"
@@ -248,7 +249,7 @@ const SignupForm = ({ setCurrentUser, setIsAuthenticated }) => {
     //     value={formData.username}
     //     onChange={handleChange}
     //   />
-    //   <label htmlFor="password">Password:</label>
+    //   <label htmlhtmlFor="password">Password:</label>
     //   <input
     //     required="password"
     //     id="password-signup-input"
