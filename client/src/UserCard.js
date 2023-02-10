@@ -30,40 +30,40 @@ function UserCard({user, currentUser, setCurrentUser}){
     return(
 
         <a
-    class="relative block overflow-hidden rounded-lg border border-gray-100 p-8"
+    className="relative block overflow-hidden rounded-lg border border-gray-100 p-8"
 >
   <span
-    class="absolute inset-x-0 bottom-0 h-2 bg-gradient-to-r from-red-700 via-yellow-600 to-red-700"
+    className="absolute inset-x-0 bottom-0 h-2 bg-gradient-to-r from-red-700 via-yellow-600 to-red-700"
   ></span>
 
-  <div class="justify-between sm:flex">
+  <div className="justify-between sm:flex">
     <div>
       <h5 className="text-xl font-bold text-yellow-600">
        Name: {user.name}
       </h5>
-
-      <p class="mt-1 text-md font-medium text-red-700">Username: {user.username}</p>
+      <h5 className="text-sm font-bold text-yellow-600">Username:</h5>
+      <p className="mt-1 text-lg font-medium text-red-700">{user.username}</p>
     </div>
 
-    <div class="ml-3 hidden flex-shrink-0 sm:block">
+    <div className="ml-3 hidden flex-shrink-0 sm:block">
       <img
         alt={user.name}
         src={user.image}
-        class="h-16 w-16 rounded-lg object-cover shadow-sm"
+        className="h-16 w-16 rounded-lg object-cover shadow-sm"
       />
     </div>
   </div>
 
-  <div class="mt-4 sm:pr-8">
-    {/* <p class="text-sm text-gray-500">
+  <div className="mt-4 sm:pr-8">
+    {/* <p className="text-sm text-gray-500">
       Lorem ipsum dolor sit, amet consectetur adipisicing elit. At velit illum
       provident a, ipsa maiores deleniti consectetur nobis et eaque.
     </p> */}
   </div>
 
-  <dl class="mt-6 flex">
-    <div class="flex flex-col-reverse">
-    {!followed ? <button onClick={handleFollow}>Follow</button> : <button onClick={handleFollow}>Unfollow</button>}
+  <dl className="mt-6 flex">
+    <div className="flex flex-col-reverse">
+    {!followed ? <button onClick={handleFollow} className="inline-block px-12 py-3 text-sm font-medium text-white transition bg-red-900 border border-yellow-700 rounded-md shrink-0 hover:bg-transparent hover:text-red-700 focus:outline-none focus:ring active:text-yellow-700 dark:hover:bg-red-700 dark:hover:text-white">Follow</button> : <button onClick={handleFollow}>Unfollow</button>}
     </div>
 
     

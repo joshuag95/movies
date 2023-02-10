@@ -50,10 +50,10 @@ const LoginForm = ({ setCurrentUser, setIsAuthenticated, isAuthenticated, setAlr
 
     <div>
       <form onSubmit={handleSubmit}>
-        <div class="col-span-6 sm:col-span-3">
+        <div className="col-span-6 sm:col-span-3">
           <label
-            for="Username"
-            class="block text-md font-medium text-700 dark:text-gray-200"
+            htmlFor="Username"
+            className="block text-md font-medium text-700 dark:text-gray-200"
           >
             Username
           </label>
@@ -64,7 +64,7 @@ const LoginForm = ({ setCurrentUser, setIsAuthenticated, isAuthenticated, setAlr
             name="username"
             value={formData.username}
             onChange={handleChange}
-            class="w-full mt-1 text-md text-gray-700 bg-white border-gray-200 rounded-md shadow-sm dark:bg-gray-800 dark:border-gray-700 dark:text-gray-200"
+            className="w-full mt-1 text-md text-gray-700 bg-white border-gray-200 rounded-md shadow-sm dark:bg-gray-800 dark:border-gray-700 dark:text-gray-200"
           />
         </div>
 
@@ -72,7 +72,7 @@ const LoginForm = ({ setCurrentUser, setIsAuthenticated, isAuthenticated, setAlr
 
         <div className="col-span-6">
           <label
-            for="password"
+            htmlFor="password"
             className="block text-md font-medium text-700 dark:text-gray-200"
           >
             Password

@@ -15,7 +15,7 @@ function Home({setIsAuthenticated, setCurrentUser, isAuthenticated}){
         {!isAuthenticated ? 
             <div> 
                 <SignupForm setCurrentUser={setCurrentUser} setIsAuthenticated ={setIsAuthenticated} /> 
-                <LoginForm setCurrentUser={setCurrentUser}  setIsAuthenticated ={setIsAuthenticated}/>
+                {/* <LoginForm setCurrentUser={setCurrentUser}  setIsAuthenticated ={setIsAuthenticated}/> */}
             </div> 
         : 
             null

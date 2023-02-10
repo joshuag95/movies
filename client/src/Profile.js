@@ -115,8 +115,8 @@ export default function Profile({ currentUser, setCurrentUser }) {
                         :
                         <form onSubmit={changeDetails} className='edit form'>
                             <label
-                                for="name"
-                                class="block text-sm font-medium text-yellow-500 dark:text-gray-200"
+                                htmlFor="name"
+                                className="block text-sm font-medium text-yellow-500 dark:text-gray-200"
                             >
                                 Name
                             </label>
@@ -125,11 +125,11 @@ export default function Profile({ currentUser, setCurrentUser }) {
                                 type="name"
                                 id="name"
                                 placeholder={currentUser.name}
-                                class="mt-1 w-relaitve rounded-md border-gray-200 shadow-sm dark:border-gray-700 dark:bg-gray-800 dark:text-white sm:text-sm"
+                                className="mt-1 w-relaitve rounded-md border-gray-200 shadow-sm dark:border-gray-700 dark:bg-gray-800 dark:text-white sm:text-sm"
                             />
                             <label
-                                for="username"
-                                class="block text-sm font-medium text-yellow-500 dark:text-gray-200"
+                                htmlFor="username"
+                                className="block text-sm font-medium text-yellow-500 dark:text-gray-200"
                             >
                                 Username
                             </label>
@@ -138,11 +138,11 @@ export default function Profile({ currentUser, setCurrentUser }) {
                                 type="username"
                                 id="username"
                                 placeholder={currentUser.name}
-                                class="mt-1 w-relaitve rounded-md border-gray-200 shadow-sm dark:border-gray-700 dark:bg-gray-800 dark:text-white sm:text-sm"
+                                className="mt-1 w-relaitve rounded-md border-gray-200 shadow-sm dark:border-gray-700 dark:bg-gray-800 dark:text-white sm:text-sm"
                             />
                             <label
-                                for="email"
-                                class="block text-sm font-medium text-yellow-500 dark:text-gray-200"
+                                htmlFor="email"
+                                className="block text-sm font-medium text-yellow-500 dark:text-gray-200"
                             >
                                 Email
                             </label>
@@ -151,7 +151,7 @@ export default function Profile({ currentUser, setCurrentUser }) {
                                 type="email"
                                 id="email"
                                 placeholder={currentUser.name}
-                                class="mt-1 w-relaitve rounded-md border-gray-200 shadow-sm dark:border-gray-700 dark:bg-gray-800 dark:text-white sm:text-sm"
+                                className="mt-1 w-relaitve rounded-md border-gray-200 shadow-sm dark:border-gray-700 dark:bg-gray-800 dark:text-white sm:text-sm"
                             />
                             {/* <h3>Name:<input placeholder={currentUser.name} onChange={(e) => setName(e.target.value)} ></input></h3> */}
                             {/* <h3>Email:<input placeholder={currentUser.email} onChange={(e) => setEmail(e.target.value)}></input></h3>
