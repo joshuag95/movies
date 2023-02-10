@@ -9,7 +9,7 @@ import Media from './Media';
 import Profile from './Profile';
 import MyFlicks from './MyFlicks';
 import AllUsers from './AllUsers';
-
+import {movies} from 'redux';
 function App() {
 
 	const [isAuthenticated, setIsAuthenticated] = useState(false);
